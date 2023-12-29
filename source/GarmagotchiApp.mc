@@ -9,7 +9,7 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 //! This app demonstrates how to use the Number Picker.
-class NumberPickerApp extends Application.AppBase {
+class GarmagotchiApp extends Application.AppBase {
 
     //! Constructor
     public function initialize() {
@@ -29,8 +29,8 @@ class NumberPickerApp extends Application.AppBase {
     //! Return the initial views for the app
     //! @return Array Pair [View, InputDelegate]
     public function getInitialView() as Array<Views or InputDelegates>? {
-        var view = new $.NumberPickerView();
-        var delegate = new $.BaseInputDelegate(view);
+        var view = new $.MinimalView();
+        var delegate = new $.MinimalInputDelegate();
         return [view, delegate] as Array<Views or InputDelegates>;
     }
 
