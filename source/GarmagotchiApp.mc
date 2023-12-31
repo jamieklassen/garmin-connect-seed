@@ -29,9 +29,22 @@ class GarmagotchiApp extends Application.AppBase {
     //! Return the initial views for the app
     //! @return Array Pair [View, InputDelegate]
     public function getInitialView() as Array<Views or InputDelegates>? {
-        var view = new $.MinimalView();
-        var delegate = new $.MinimalInputDelegate();
+        var model = new Garmagotchi();
+        var view = new $.MinimalView(model);
+        var delegate = new $.GarmagotchiInputDelegate(model);
         return [view, delegate] as Array<Views or InputDelegates>;
     }
+}
 
+class Garmagotchi {
+    public var mood;
+    public function initialize() {
+        mood = 0;
+    }
+    public function moodUp() {
+        mood += 1;
+    }
+    public function moodDown() {
+        mood -= 1;
+    }
 }

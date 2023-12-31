@@ -1,3 +1,4 @@
 <resources>
-    <bitmap id="LauncherIcon" filename="images/icon.png" />
+  <bitmap id="LauncherIcon" filename="images/icon.png" />
+  <bitmap id="YoshiSheet" filename="images/yoshi.png" packingFormat="png" />
 </resources>
