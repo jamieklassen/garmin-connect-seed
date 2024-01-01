@@ -73,7 +73,15 @@ class MinimalView extends WatchUi.View {
         var frameCoordX = currentFrame[0];
         var frameCoordY = currentFrame[1];
 
-        yoshiSheet.drawFrame(frameCoordX, frameCoordY, screenCenterX, screenCenterY, dc);
+        yoshiSheet.drawFrame(
+            frameCoordX,
+            frameCoordY,
+            screenCenterX,
+            screenCenterY,
+            // TODO tint with blue, scaling alpha
+            model.mood * 100,
+            dc
+        );
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         var moodString = Lang.format("mood: $1$", [model.mood.format("%d")]);
         dc.drawText(
@@ -135,6 +143,7 @@ class SpriteSheet {
         frameCoordY as Lang.Number,
         originX as Lang.Number,
         originY as Lang.Number,
+        tintColor as Lang.Number,
         dc as Dc
     ) as Void {
         var bitmapX = frameCoordX * (spriteFrameWidth + spriteFrameBorderWidth);
@@ -150,6 +159,7 @@ class SpriteSheet {
             :bitmapY => bitmapY,
             :bitmapWidth => spriteFrameWidth,
             :bitmapHeight => spriteFrameHeight,
+            :tintColor => tintColor,
             :transform => transform
         });
     }

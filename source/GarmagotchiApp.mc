@@ -39,7 +39,7 @@ class GarmagotchiApp extends Application.AppBase {
 class Garmagotchi {
     public var mood;
     public function initialize() {
-        mood = 0;
+        mood = 100;
     }
     public function moodUp() {
         mood += 1;

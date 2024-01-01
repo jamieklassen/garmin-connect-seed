@@ -9,6 +9,7 @@ build:
 	--device $(DEVICE) \
 	--output bin/$(appName).prg \
 	--private-key $(PRIVATE_KEY) \
+	--unit-test \
 	--warn
 
 buildall:
@@ -28,6 +29,12 @@ run: build
 	sleep 3 &&\
 	$(JAVA_OPTIONS) \
 	$(SDK_HOME)/bin/monkeydo bin/$(appName).prg $(DEVICE)
+
+test: build
+	@$(SDK_HOME)/bin/connectiq &&\
+	sleep 3 &&\
+	$(JAVA_OPTIONS) \
+	$(SDK_HOME)/bin/monkeydo bin/$(appName).prg $(DEVICE) -t
 
 deploy: build
 	@cp bin/$(appName).prg $(DEPLOY)
