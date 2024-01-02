@@ -37,14 +37,22 @@ class GarmagotchiApp extends Application.AppBase {
 }
 
 class Garmagotchi {
+    public const MAX_MOOD = 10;
     public var mood;
+
     public function initialize() {
-        mood = 100;
+        mood = MAX_MOOD;
     }
+
     public function moodUp() {
-        mood += 1;
+        if (mood < MAX_MOOD) {
+            mood += 1;
+        }
     }
+
     public function moodDown() {
-        mood -= 1;
+        if (mood > 0) {
+            mood -= 1;
+        }
     }
 }

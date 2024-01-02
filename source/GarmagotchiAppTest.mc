@@ -1,8 +1,26 @@
-using Toybox.Test;
+import Toybox.Test;
 
 (:test)
-function initialMoodIs100(logger) {
+function initialMoodIs10(logger as Test.Logger) {
     var model = new Garmagotchi();
-    Test.assert(model.mood == 100);
+    Test.assertEqualMessage(model.mood, 10, "mood was not initially 10");
+    return true;
+}
+
+(:test)
+function moodDoesNotExceed10(logger as Test.Logger) {
+    var model = new Garmagotchi();
+    model.moodUp();
+    Test.assertEqualMessage(model.mood, 10, "mood should not exceed 10");
+    return true;
+}
+
+(:test)
+function moodStaysNonnegative(logger as Test.Logger) {
+    var model = new Garmagotchi();
+    for (var i = 0; i < 11; i++) {
+        model.moodDown();
+    }
+    Test.assertEqualMessage(model.mood, 0, "mood should not go below 0");
     return true;
 }
