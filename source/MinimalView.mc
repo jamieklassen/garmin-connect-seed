@@ -16,7 +16,7 @@ class GarmagotchiInputDelegate extends WatchUi.InputDelegate {
     //! TODO document constructor
     //! Constructor
     //! @param model ???
-    public function initialize(model as Garmagotchi) {
+    public function initialize(model as Pet) {
         self.model = model;
         InputDelegate.initialize();
     }
@@ -44,7 +44,7 @@ class MinimalView extends WatchUi.View {
     var animation;
 
     //! Constructor
-    public function initialize(model as Garmagotchi) {
+    public function initialize(model as Pet) {
         View.initialize();
         self.model = model;
     }
