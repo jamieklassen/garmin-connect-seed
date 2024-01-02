@@ -73,13 +73,13 @@ class MinimalView extends WatchUi.View {
         var frameCoordX = currentFrame[0];
         var frameCoordY = currentFrame[1];
 
+        var moodScale = model.mood.toFloat() / model.MAX_MOOD * 255;
         yoshiSheet.drawFrame(
             frameCoordX,
             frameCoordY,
             screenCenterX,
             screenCenterY,
-            // TODO tint with blue, scaling alpha
-            model.mood * 100,
+            Graphics.createColor(0, moodScale, moodScale, 255),
             dc
         );
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
