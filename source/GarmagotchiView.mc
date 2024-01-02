@@ -9,7 +9,7 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 //! TODO document class
-class MinimalView extends WatchUi.View {
+class GarmagotchiView extends WatchUi.View {
     var model;
     var yoshiSheet;
     var animation;

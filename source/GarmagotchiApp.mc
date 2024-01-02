@@ -30,7 +30,7 @@ class GarmagotchiApp extends Application.AppBase {
     //! @return Array Pair [View, InputDelegate]
     public function getInitialView() as Array<Views or InputDelegates>? {
         var model = new $.Pet();
-        var view = new $.MinimalView(model);
+        var view = new $.GarmagotchiView(model);
         var delegate = new $.GarmagotchiInputDelegate(model);
         return [view, delegate] as Array<Views or InputDelegates>;
     }
